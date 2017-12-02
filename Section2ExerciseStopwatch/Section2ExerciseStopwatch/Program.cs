@@ -17,13 +17,23 @@ namespace Section2ExerciseStopwatch
         {
             return DateTime.Now;
         }
+
+        public TimeSpan Duration(DateTime start, DateTime stop)
+        {
+            return stop - start;
+        }
     }
     class Program
     {
         static void Main(string[] args)
         {
             var stopwatch = new Stopwatch();
-            var duration = stopwatch.Stop() - stopwatch.Start();
+            var start = stopwatch.Start();
+            System.Threading.Thread.Sleep(5000);
+            var stop = stopwatch.Stop();
+
+
+            var duration = stopwatch.Duration(start, stop);
             Console.WriteLine(duration);
         }
     }
