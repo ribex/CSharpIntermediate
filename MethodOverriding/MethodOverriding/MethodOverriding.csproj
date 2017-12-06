@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{AB80EBE5-3AE4-4363-810E-C4AEDD3B0479}</ProjectGuid>
+    <ProjectGuid>{130E6736-4468-475A-8B1F-AB29587FEEFF}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>DesignAStack</RootNamespace>
-    <AssemblyName>DesignAStack</AssemblyName>
+    <RootNamespace>MethodOverriding</RootNamespace>
+    <AssemblyName>MethodOverriding</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -44,7 +44,6 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Stack.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
