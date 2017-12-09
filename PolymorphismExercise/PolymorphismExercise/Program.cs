@@ -8,17 +8,24 @@ namespace PolymorphismExercise
 {
     public class DbCommand
     {
-        public string DbConnection { get; set; }
+        public DbConnection DbConnection { get; set; }
         public string Instruction { get; set; }
 
-        public DbCommand(string dbConnection, string instruction)
+        public DbCommand(DbConnection dbConnection, string instruction)
         {
-            if (string.IsNullOrEmpty(dbConnection) || string.IsNullOrEmpty(instruction))
+            if (dbConnection == null || string.IsNullOrEmpty(instruction))
             {
                 throw new InvalidOperationException();
             }
             DbConnection = dbConnection;
             Instruction = instruction;
+        }
+
+        public void Execute()
+        {
+            DbConnection.Open();
+            Console.WriteLine("Run the instruction: " + Instruction);
+            DbConnection.Close();
         }
     }
 
@@ -38,6 +45,11 @@ Integrated Security=no;");
 
             oracle.Open();
             oracle.Close();
+
+//            var dbCommand = new DbCommand(sql, "This is the instruction for SQL");
+
+            var dbCommand = new DbCommand(oracle, "This is the instruction for Oracle");
+            dbCommand.Execute();
         }
     }
 }
