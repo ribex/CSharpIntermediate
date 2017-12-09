@@ -1,10 +1,28 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace PolymorphismExercise
 {
+    public class DbCommand
+    {
+        public string DbConnection { get; set; }
+        public string Instruction { get; set; }
+
+        public DbCommand(string dbConnection, string instruction)
+        {
+            if (string.IsNullOrEmpty(dbConnection) || string.IsNullOrEmpty(instruction))
+            {
+                throw new InvalidOperationException();
+            }
+            DbConnection = dbConnection;
+            Instruction = instruction;
+        }
+    }
+
+
     class Program
     {
         static void Main(string[] args)

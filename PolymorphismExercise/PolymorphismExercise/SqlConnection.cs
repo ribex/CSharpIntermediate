@@ -32,6 +32,5 @@ namespace PolymorphismExercise
         {
             ConnectionString = connectionString;
         }
-
     }
 }
