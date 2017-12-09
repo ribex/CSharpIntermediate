@@ -6,28 +6,50 @@ using System.Threading.Tasks;
 
 namespace PolymorphismExercise
 {
-    public class DbConnection
-    {
-        private readonly ConnectionString _connectionString;
+//    public class SqlConnection : DbConnection
+//    {
+//        public override Open()
+//        {
+//            
+//        }
+//    }
 
-        public DbConnection(ConnectionString connectionString)
+    public abstract class DbConnection
+    {
+
+
+        // fields
+        public string ConnectionString { get; set; }
+        public TimeSpan TimeOut { get; set; }
+
+
+        protected DbConnection(string connectionString)
         {
-            if (connectionString == null || connectionString == "")
+            if (string.IsNullOrEmpty(connectionString))
             {
                 throw new InvalidOperationException();
             }
             else
             {
-                _connectionString = connectionString;
+                ConnectionString = connectionString;
             }
         }
 
-        public string ConnectionString { get; set; }
-        public TimeSpan Timeout { get; set; }
+        // methods
+        public void Open()
+        {
+            Console.WriteLine("The connection is being opened...");
+        }
 
-        public void Open() { }
-        public void Close() { }
+
+        public void Close()
+        {
+            Console.WriteLine("The connection is being closed...");
+
+        }
+
     }
+
 
     class Program
     {
